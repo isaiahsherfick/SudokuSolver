@@ -1,18 +1,21 @@
+import sys
 class board:
-	#Creates a n-dimensional board filled with -1s
+	#Creates an n-dimensional board filled with -1s
 	def __init__(self, n):
-		self.width = n
-		self.height = n
+		self.rows = n
+		self.columns = n
 		newboard = []
 		for i in range(n):
 			newlst = []
 			for j in range(n):
-				newlst += [-1]
-			newboard += newlst
+				newlst.append(-1)
+			newboard.append(newlst)
 		self.board = newboard
 
 	def print(self):	
-		print(self.board)
-
-b = board(3)
+		for i in range(self.rows):
+			for j in range(self.columns):
+				sys.stdout.write(str(self.board[i][j]) + " ")
+		sys.stdout.write("\n\n")
+b = board(9)
 b.print()
